@@ -29,8 +29,8 @@ function Dashboard() {
   const barData = available
     .filter((s) => filter === "all" || s.label === filter)
     .map((s) => ({ name: s.label, Female: s.female, Male: s.male }));
-  const pie = available[pieIdx];
-  const [zone, setZone] = useState(COVERAGE_ZONES[0]);
+  const pie = available[pieIdx]!;
+  const [zone, setZone] = useState(COVERAGE_ZONES[0]!);
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-20">
@@ -83,7 +83,7 @@ function Dashboard() {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <SourceNote source={available[0].source} status="reference" />
+        <SourceNote source={available[0]!.source} status="reference" />
         <p className="mt-1 text-[0.7rem] text-muted-foreground">Higher-education figures: {KHDA_HE.dataset}, {KHDA_HE.authority}.</p>
       </section>
 
@@ -123,7 +123,7 @@ function Dashboard() {
               <path d="M0 0 H100 V8 C80 14 60 22 40 32 C25 40 12 46 0 52 Z" fill="var(--pearl)" opacity="0.5" />
               {/* emirate */}
               <path d="M0 52 C12 46 25 40 40 32 C60 22 80 14 100 8 V75 H0 Z" fill="var(--sage)" opacity={zone.id === "emirate" ? 0.55 : 0.3}
-                className="cursor-pointer transition-opacity" onClick={() => setZone(COVERAGE_ZONES[0])} />
+                className="cursor-pointer transition-opacity" onClick={() => setZone(COVERAGE_ZONES[0]!)} />
               <text x="6" y="12" fontSize="3" fill="currentColor" opacity="0.6">Arabian Gulf</text>
               {COVERAGE_ZONES.filter((z) => z.kind === "point").map((z) => (
                 <g key={z.id} className="cursor-pointer" onClick={() => setZone(z)} tabIndex={0} role="button" aria-label={z.name}

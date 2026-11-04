@@ -50,7 +50,7 @@ function SettingsPage() {
 
       <Group title="Appearance">
         <div className="flex flex-wrap gap-2 py-4">
-          {(["light", "dark", "system"] as const).map((t) => <button key={t} onClick={() => update({ theme: t })} aria-pressed={settings.theme === t} className={seg(settings.theme === t)}>{t[0].toUpperCase() + t.slice(1)}</button>)}
+          {(["light", "dark", "system"] as const).map((t) => <button key={t} onClick={() => update({ theme: t })} aria-pressed={settings.theme === t} className={seg(settings.theme === t)}>{t.charAt(0).toUpperCase() + t.slice(1)}</button>)}
         </div>
       </Group>
 

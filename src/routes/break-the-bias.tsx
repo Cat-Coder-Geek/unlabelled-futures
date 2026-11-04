@@ -86,7 +86,7 @@ function BreakTheBias() {
   const [ambition, setAmbition] = useState("");
   const [wall, setWall] = useState(WALL);
 
-  const m = MYTHS[i];
+  const m = MYTHS[i]!;
 
   const choose = async (a: string) => {
     setAnswer(a);
