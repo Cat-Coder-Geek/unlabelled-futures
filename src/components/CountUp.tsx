@@ -8,7 +8,7 @@ export function CountUp({ value, suffix = "", duration = 1600 }: { value: number
     if (!el) return;
     let raf = 0;
     const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
+      if (!e?.isIntersecting) return;
       io.disconnect();
       const reduce = document.documentElement.classList.contains("reduce-motion");
       if (reduce) return setN(value);
